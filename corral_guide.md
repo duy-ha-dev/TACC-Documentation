@@ -36,9 +36,14 @@ To transfer a whole directory and its contents, add the `-r` (recursive) flag:
 
 **(Preferred)** **Transfer with Progress and Compression:**
 
-You can also use the `-avz` flags to show progress during transfer where the `-z` flag to enable compression:
+You can also use the `-avz` flags to show detailed file names during transfer where the `-z` flag to enable compression:
 
 - `rsync -avz /local/path/to/filename /path/to/project/directory`
+
+If you are transferring a large amount of files and you want to see the percentage of files transferred rather than the whole list of files, you can also use the `--info=progress2 --info=name0` flags to show progress:
+
+- `rsync -az --info=progress2 --info=name0 /local/path/to/filename /path/to/project/directory`
+When doing so make sure your local folder shares the same structure as the target folder.
 
 ### Alternatives to rsync (not recommended)
 
