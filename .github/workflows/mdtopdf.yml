@@ -21,10 +21,15 @@ jobs:
     - name: Convert all Markdown files to PDF
       run: |
         find . -name '*.md' -exec sh -c 'pandoc "$0" -o "${0%.md}.pdf"' {} \;
-
+    - name: Commit PDFs
+          run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add **/*.pdf
+            git commit -m "Automated PDF generation" -a || echo "No changes to commit"
+            git push
     - name: Upload all PDFs
       uses: actions/upload-artifact@v2
       with:
-        name: Converted-PDFs
-        path: |
-          **/*.pdf
+        name: PDFs
+        path: '**/*.pdf'
