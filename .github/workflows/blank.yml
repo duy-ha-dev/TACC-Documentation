@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Convert Markdown to PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.md'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Convert Markdown to PDF
+      uses: docker://pandoc/latex:2.9
+      with:
+        args: >
+          --from markdown
+          --to latex
+          --output myfile.pdf
+          myfile.md
+
+    - name: Upload PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: Converted-PDF
+        path: myfile.pdf
