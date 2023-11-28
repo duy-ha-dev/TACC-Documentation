@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Convert Markdown to PDF
 
 on:
@@ -17,17 +15,19 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Install dependencies
+      run: sudo apt-get install -y jq
+
     - name: Convert Markdown to PDF
-      uses: docker://pandoc/latex:2.9
-      with:
-        args: >
-          --from markdown
-          --to latex
-          --output myfile.pdf
-          myfile.md
+      run: |
+        for file in $(git diff --name-only HEAD^ HEAD | grep -E '\.md$'); do
+          pdf="${file%.md}.pdf"
+          pandoc "$file" -o "$pdf"
+        done
 
     - name: Upload PDF
       uses: actions/upload-artifact@v2
       with:
-        name: Converted-PDF
-        path: myfile.pdf
+        name: Converted-PDFs
+        path: |
+          **/*.pdf
