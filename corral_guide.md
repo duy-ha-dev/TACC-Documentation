@@ -41,8 +41,8 @@ You can also use the `-avz` flags to show detailed file names during transfer wh
 - `rsync -avz /local/path/to/filename /path/to/project/directory`
 
 If you are transferring a large amount of files and you want to see the percentage of files transferred rather than the whole list of files, you can also use the `--info=progress2 --info=name0` flags to show progress:
-
-- `rsync -az --info=progress2 --info=name0 /local/path/to/filename /path/to/project/directory`
+- `rsync -aW --info=progress2 --info=name0 /local/path/to/filename /path/to/project/directory` for initial trasnfer
+- `rsync -az --info=progress2 --info=name0 /local/path/to/filename /path/to/project/directory` for subsequent update
 When doing so make sure your local folder shares the same structure as the target folder.
 
 ### Alternatives to rsync (not recommended)
