@@ -66,9 +66,13 @@
 
 *(This is NOT an On-Startup solution; so do this every time)*
 
+
 - For a DCV Remote Desktop and Jupyter Notebook session
     - Make sure a directory is made in **$SCRATCH** to contain files
     - Open a new terminal
     - `rclone --vfs-cache-mode writes mount "[name of drive set during rclone config]": [directory in $SCRATCH]`
     - Do not close the terminal
 - ******TIP******: Once local folder is completed mounted, perform an `rsync` to save into a separate local folder to limit the number of times you would need to mount on-startup
+
+  ### Copy directly from rclone without mounting
+  rclone copy -P GDrive:Do\ Monte\ Lab/Miniscope/Behavior_Files /corral/uth/IBN22012/minian/ --multi-thread-cutoff 10Mi --multi-thread-streams 10 --transfers 10
