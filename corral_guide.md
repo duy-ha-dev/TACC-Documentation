@@ -19,6 +19,8 @@
     1. In this case, it would be Corral project directory: `/corral/uth/IBN22012`
 2. **Local Path**: Know the local path to the files or directories you want to transfer.
     1. In TACC, the preferred location is generally `$SCRATCH`
+3. **Setting Read Write Permissions**: DO THIS BEFORE EACH FILE TRANSFER: `chmod -R g+rw filepath`
+- e.g. setting all files under scratch `cd $SCRATCH` -> `chmod -R g+rw *` 
 
 ## How to Use rsync for File Transfer
 
