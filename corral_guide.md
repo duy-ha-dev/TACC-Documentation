@@ -20,7 +20,7 @@
 2. **Local Path**: Know the local path to the files or directories you want to transfer.
     1. In TACC, the preferred location is generally `$SCRATCH`
 3. **Setting Read Write Permissions**: 
-First, set umask to 027: umask 027. Check umask value by simply type umask.
+First, set umask to 002: umask 022. Check the umask value by simply typing umask`
 DO THIS BEFORE EACH FILE TRANSFER: `chmod -R g+rw filepath`
 - e.g. setting all files under scratch `cd $SCRATCH` -> `chmod -R g+rw *` 
 
