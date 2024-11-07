@@ -30,8 +30,8 @@ Visit [www.tap.tacc.utexas.edu](https://www.tap.tacc.utexas.edu/) and use the fo
 ## Lonestar6
 
 - Put all working files in `/scratch`, there's no space limit
-    - BUT it purges files if you don't access them for 10 days. Always back up files to `/work`.
-- `/work` has a limit of 1024 GB. If work is full then transfer to `/range`.
+    - BUT it purges files if you don't access them for 10 days. Always back up files to `/work` or `/corral`.
+- `/work` has a limit of 1024 GB. If work is full then transfer to `/corral`. See [corral_guide](https://github.com/duy-ha-dev/TACC-Documentation/edit/main/tacc_setup.md#:~:text=corral_guide-,.,-md).
 - Type `cd` for `$HOME`, `cdw` for `$WORK`, `cds` for `$SCRATCH`.
     - In shell, type `$HOME/` and press tab, it will show you the absolute path. You need the absolute path instead of `$SCRATCH` to access directories when you transfer files from and to local computer and when you use jupyter notebook.
 
